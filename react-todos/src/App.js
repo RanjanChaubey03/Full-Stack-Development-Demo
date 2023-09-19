@@ -1,38 +1,40 @@
 // import logo from './logo.svg';
 import './App.css';
+import TodoTable from './components/TodoTable';
 
 function App() {
+  const todos = [
+    { rowNumber: 1, rowDescription: 'Feed puppy', rowAssigned: 'User One' },
+    { rowNumber: 2, rowDescription: 'Water plants', rowAssigned: 'User Two' },
+    { rowNumber: 3, rowDescription: 'Make dinner', rowAssigned: 'User One' },
+    { rowNumber: 4, rowDescription: 'Charge phone battery', rowAssigned: 'User One' }
+
+  ]
+
+  const addTodo = ()=>{
+    if(todos.length>0){
+      const newTodo = {
+        rowNumber: todos.length + 1,
+        rowDescription: 'New Todo',
+        rowAssigned: 'User Three'
+      };
+      todos.push(newTodo);
+      console.log(todos);
+    }
+  }
+
   return (
-   <div className='mt-5 container'>
-    <div className='card'>
-      <div className='card-header'>
-        Your todo's
-      </div>
-      <div className='card-body'>
-        <table className='table table-hover'>
-          <thead>
-            <tr>
-              <th scope='col'>#</th>
-              <th scope='col'>Description</th>
-              <th scope='col'>Assigned</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope='row'>1</th>
-              <td>Feed Dog</td>
-              <td>Eric</td>
-            </tr>
-            <tr>
-              <th scope='row'>2</th>
-              <td>Get haircut</td>
-              <td>Eric</td>
-            </tr>
-          </tbody>
-        </table>
+    <div className='mt-5 container'>
+      <div className='card'>
+        <div className='card-header'>
+          Your todo's
+        </div>
+        <div className='card-body'>
+         <TodoTable todos={todos}/>
+         <button class='btn btn-primary' onClick={addTodo}>Add new Todo</button>
+        </div>
       </div>
     </div>
-   </div>
   );
 }
 
