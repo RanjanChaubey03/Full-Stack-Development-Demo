@@ -1,0 +1,6 @@
+React commands
+
+>>npx create-react-app react-todos
+>> cd react-todos
+>> npm start
+>> set PORT=5100 && npm start
