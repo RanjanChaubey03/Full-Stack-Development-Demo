@@ -12,12 +12,12 @@ import NewTodoForm from './components/NewTodoForm';
 
   ])
 
-  const addTodo = ()=>{
+  const addTodo = (description,assigned)=>{
     if(todos.length>0){
       const newTodo = {
         rowNumber: todos.length + 1,
-        rowDescription: 'New Todo',
-        rowAssigned: 'User Three'
+        rowDescription: description,
+        rowAssigned: assigned
       };
       setTodos(todos => [...todos,newTodo]);
     }
@@ -32,7 +32,7 @@ import NewTodoForm from './components/NewTodoForm';
         <div className='card-body'>
          <TodoTable todos={todos}/>
          <button class='btn btn-primary' onClick={addTodo}>Add new Todo</button>
-         <NewTodoForm/>
+         <NewTodoForm addTodo = {addTodo}/>
         </div>
       </div>
     </div>
