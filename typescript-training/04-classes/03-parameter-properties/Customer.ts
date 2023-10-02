@@ -1,11 +1,8 @@
 class Customer{
-    private _firstName : string;
-    private _lastname: string;
-   
+    
 
-    constructor(theFirst:string,theSecond:string){
-        this._firstName=theFirst;
-        this._lastname=theSecond;
+    constructor(private _firstName:string,private _lastname:string){
+       
     }
 
     public get firstName():string{
@@ -26,9 +23,6 @@ class Customer{
 }
 
 let myCustomer = new Customer("Ranjan","Chaturvedi");
-
-myCustomer.firstName="Ranjan";
-myCustomer.lastname="Chaubey"
 
 console.log(myCustomer.firstName);
 console.log(myCustomer.lastname);

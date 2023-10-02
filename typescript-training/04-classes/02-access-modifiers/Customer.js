@@ -26,5 +26,7 @@ var Customer = /** @class */ (function () {
     return Customer;
 }());
 var myCustomer = new Customer("Ranjan", "Chaturvedi");
+myCustomer.firstName = "Ranjan";
+myCustomer.lastname = "Chaubey";
 console.log(myCustomer.firstName);
 console.log(myCustomer.lastname);
