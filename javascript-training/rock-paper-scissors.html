@@ -2,16 +2,58 @@
 <head>
     <title>Rock Paper Scissors</title>
 </head>
+<style>
+body{
+    background-color: black;
+    color: white;
+}
+
+.move-icon{
+    height: 50px;
+}
+
+.move-button{
+    background-color: transparent;
+    border: 3px solid white;
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+
+}
+
+.reset-score-button {
+  background-color: white;
+  border: none;
+  font-size: 15px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.result {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.score {
+  margin-top: 60px;
+}
+
+</style>
 <body>
 
-    <button onclick="playGame('Rock')">Rock</button>
-    <button onclick="playGame('Paper')">Paper</button>
-    <button onclick="playGame('Scissor')">Scissors</button>
-    <button onclick="resetGame()">Reset</button>
+    <button class = "move-button" onclick="playGame('Rock')"><img src="images/rock-paper-scissors-rock.png" class="move-icon"></button>
+    <button class = "move-button" onclick="playGame('Paper')"><img src="images/rock-paper-scissors-paper.png" class="move-icon"></button>
+    <button class = "move-button" onclick="playGame('Scissor')"><img src="images/rock-paper-scissors-scissor.png" class="move-icon"></button>
 
-    <p class="js-result"></p>
+
+    <p class="js-result result"></p>
     <p class="js-moves"></p>
-    <p class="js-score"></p>
+    <p class="js-score score"></p>
+
+    <button class=".reset-score-button" onclick="resetGame()">Reset</button>
+
+    
     
     <script>
         let score =JSON.parse(localStorage.getItem('score')) ||{
@@ -85,7 +127,12 @@
             
             document.querySelector('.js-result').innerHTML=result;
 
-            document.querySelector('.js-moves').innerHTML = `You ${playerMove} - ${computerMove} Computer`;
+            
+
+            document.querySelector('.js-moves').innerHTML = `You
+<img src="images/rock-paper-scissors-${playerMove}.png" class="move-icon">
+<img src="images/rock-paper-scissors-${computerMove}.png" class="move-icon">
+Computer`;
             
             alert(`Your move : ${playerMove}, computer Move : ${computerMove}, Result: ${result} 
 Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`);
